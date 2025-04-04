@@ -1,0 +1,43 @@
+# Project: VVC
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = addingNewContact.o contact.o dummy_contact.o main.o saveContacts.o addonfunct.o
+LINKOBJ  = addingNewContact.o contact.o dummy_contact.o main.o saveContacts.o addonfunct.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = VVC.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+addingNewContact.o: addingNewContact.c
+	$(CC) -c addingNewContact.c -o addingNewContact.o $(CFLAGS)
+
+contact.o: contact.c
+	$(CC) -c contact.c -o contact.o $(CFLAGS)
+
+dummy_contact.o: dummy_contact.c
+	$(CC) -c dummy_contact.c -o dummy_contact.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+saveContacts.o: saveContacts.c
+	$(CC) -c saveContacts.c -o saveContacts.o $(CFLAGS)
+
+addonfunct.o: addonfunct.c
+	$(CC) -c addonfunct.c -o addonfunct.o $(CFLAGS)
